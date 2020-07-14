@@ -3,6 +3,10 @@ package com.challenge.tree;
 public class MaxPathSum {
 	
 	int max = Integer.MIN_VALUE;
+	
+	/*
+	 * Path has negative value
+	 */
 
 	public int maxPathSum(Node root) {
 		

@@ -29,11 +29,15 @@ public class CloneGraph {
 	
 	private GraphNode cloneGraph(GraphNode g) {
 		
-		Map<Integer, GraphNode> map = new HashMap<>();
+		Map<GraphNode, GraphNode> map = new HashMap<>();
 		
 		Queue<GraphNode> q = new LinkedList<>();
 		
 		q.add(g);
+		
+		GraphNode cloneNode = new GraphNode(g.data);
+		
+		map.put(g, cloneNode);
 		
 		while(!q.isEmpty()) {
 			
@@ -41,35 +45,18 @@ public class CloneGraph {
 			
 			temp.isVisited = true;
 			
-			map.put(temp.data, new GraphNode(temp.data));
-			
-			for(GraphNode child: g.children) {
+			for(GraphNode child: temp.children) {
 				if(!child.isVisited) {
 					q.add(child);
+					GraphNode cloneChild = new GraphNode(child.data);
+					map.put(child, cloneChild);
 				}
+				map.get(temp).children.add(map.get(child));
 			}
 			
 		}
 		
-		q.add(g); 
-//		GraphNode cloneNode = new GraphNode(0);
-		
-		while(!q.isEmpty()) {
-			GraphNode temp = q.poll();
-			
-			temp.isVisited = false;
-			
-			for(GraphNode child: temp.children) {
-				map.get(temp.data).children.add(map.get(child.data));
-				if(child.isVisited) {
-					q.add(child);
-				}
-			}
-		}
-		
-		
-		
-		return map.get(g.data);
+		return map.get(g);
 	}
 
 }

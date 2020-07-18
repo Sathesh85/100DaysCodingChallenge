@@ -1,4 +1,4 @@
-package com.challenge.priority_queue;
+package com.challenge.intervals;
 
 import java.util.ArrayList;
 import java.util.Arrays;

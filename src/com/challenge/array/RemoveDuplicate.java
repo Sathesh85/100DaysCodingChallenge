@@ -8,7 +8,7 @@ public class RemoveDuplicate {
 		r.removeDuplicates(nums);
 	}
 	
-	public int removeDuplicates(int[] nums) {
+	/*public int removeDuplicates(int[] nums) {
         
         if(nums.length==0)
             return 0;
@@ -38,6 +38,26 @@ public class RemoveDuplicate {
         
         return sP;
         
-    }
+    }*/
+	
+	public int removeDuplicates(int[] nums) {
+		
+		int j=1, count =1;
+		
+		for(int i =1;i< nums.length; i++) {
+			if(nums[i] == nums[i-1]) {
+				count ++;
+			} else {
+				count = 1;
+			}
+			
+			if(count <= 2) {
+				nums[j++] = nums[i];
+			}
+		}
+		
+		return j;
+		
+	}
 
 }

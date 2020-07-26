@@ -1,6 +1,7 @@
 package com.challenge.divide_and_conquer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class PermutationWithDuplicates {
@@ -15,6 +16,7 @@ public class PermutationWithDuplicates {
 		List<List<Integer>> res = new ArrayList<>();
 		boolean[] visited = new boolean[nums.length];
 		List<Integer> list = new ArrayList<>();
+		Arrays.sort(nums);
 		dfs(nums,res, visited, list);
 		return res;
 	}

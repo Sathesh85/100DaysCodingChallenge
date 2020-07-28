@@ -6,10 +6,10 @@ public class RemoveDuplicates {
 		RemoveDuplicates r = new RemoveDuplicates();
 		
 		ListNode l = new ListNode(1);
-		l.next = new ListNode(2);
+		l.next = new ListNode(1);/*
 		l.next.next = new ListNode(2);
 		l.next.next.next = new ListNode(2);
-		l.next.next.next.next = new ListNode(3);
+		l.next.next.next.next = new ListNode(3);*/
 		
 		ListNode res = r.removeDup(l);
 		System.out.println(res);
@@ -18,7 +18,7 @@ public class RemoveDuplicates {
 	private ListNode removeDup(ListNode head) {
         ListNode dup = new ListNode(0);
         ListNode tempDup = dup;
-        while(head.next !=null){
+        while(head!=null && head.next !=null){
             if(head.val != head.next.val){
             	dup.next = head;
             	dup = dup.next;
@@ -27,10 +27,11 @@ public class RemoveDuplicates {
             	while(head.next!=null && head.val == head.next.val) {
             		head = head.next;
             	}
+            	head = head.next;
             }
             
         }
-        dup.next = null;
+        dup.next = head;
         return tempDup.next;
 		
 	}

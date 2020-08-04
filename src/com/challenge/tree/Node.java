@@ -2,11 +2,13 @@ package com.challenge.tree;
 
 public class Node {
 	
-	int data;
+	public int data;
 	
-	Node right, left;
+	public Node right;
+
+	public Node left;
 	
-	Node(int data){
+	public Node(int data){
 		this.data = data;
 		right = null;
 		left = null;

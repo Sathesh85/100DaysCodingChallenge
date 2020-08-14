@@ -1,7 +1,9 @@
 package com.challenge.backtracking;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class GenerateParenthesis {
 	
@@ -12,17 +14,17 @@ public class GenerateParenthesis {
 	}
 	
 	public List<String> generateParenthesis(int n) {
-        List<String> list = null;
+        Set<String> list = null;
         
         if(n==0){
-        	list = new ArrayList<>();
+        	list = new HashSet<>();
             list.add("");
-            return list;
+            return new ArrayList<>(list);
         }
         
         List<String> subParenList = generateParenthesis(n-1);
         
-        list = new ArrayList<>();
+        list = new HashSet<>();
         for(String p : subParenList){
             String res = new String();
             for(int i =0; i< p.length(); i++){
@@ -33,8 +35,7 @@ public class GenerateParenthesis {
             }
             list.add(p+"()");
         }
-        
-        return list;
+        return new ArrayList<>(list);
     }
 
 }

@@ -1,7 +1,6 @@
 package com.challenge.dynamic_programming;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 class WordDictionary {

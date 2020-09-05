@@ -45,5 +45,27 @@ public class OddEvenList {
 		
 		return currOdd.next;
 	}
+	
+	/*
+	 * without extra spaces
+	 */
+	private ListNode arrangeListWithoutExtraSpace(ListNode head) {
+		if(head == null) {
+			return null;
+		}
+		
+		ListNode odd = head, even = head.next, evenHead = head;
+		
+		while(even !=null) {
+			odd.next = even.next;
+			odd = odd.next;
+			even.next = odd.next;
+			even = even.next;
+		}
+		
+		odd.next = evenHead;
+		
+		return head;
+	}
 
 }
